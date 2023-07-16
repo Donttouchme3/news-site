@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load blog_tags %}
+
+{% block main %}
+        <h2>Новостной портал</h2>
+        <div class="d-flex justify-content-between">
+            <div class="col-3">
+                {% get_all_categories as categories %}
+                {% include 'web_site/components/_sidebar.html' %}
+            </div>
+
+            <div class="col-8">
+                {% for post in posts %}
+                    {% include 'web_site/components/_card.html' %}
+                {% endfor %}
+            </div>
+        </div>
+{% endblock main %}
